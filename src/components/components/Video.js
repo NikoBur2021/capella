@@ -1,8 +1,9 @@
-import {Container, Grid, Typography} from "@material-ui/core";
+import {Button, Container, Grid, Typography} from "@material-ui/core";
 import YouTube from "../YouTube";
 import React from "react";
 import {useSelector} from "react-redux";
 import useStyles from "../../styles";
+import {Link} from "react-router-dom";
 
 function Video(){
     const classes = useStyles()
@@ -10,6 +11,17 @@ function Video(){
     return (
         <div className={classes.container}>
             <Container maxWidth="lg" >
+                <Container>
+                    <div className={classes.button}>
+                        <Grid container spacing={2} justify="center">
+                            <Grid item>
+                                <Button variant="contained" color="primary" component={Link} to="/sever">
+                                    {translationMap.get('sever')}
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </div>
+                </Container>
                 <Typography variant="h3" align="center" color="textSecondary" gutterBottom>
                     {translationMap.get('aboutHomeBtn')}
                 </Typography>

@@ -3,6 +3,8 @@ import {createSlice} from "@reduxjs/toolkit";
 const enMap = new Map();
 enMap.set('hello', 'Welcome to our website')
 enMap.set('homeHeaderBtn','Home')
+enMap.set('HomePhotoAlbum','Photo Album')
+enMap.set('HomeArranged','Arranged for male trio by N. Buryakov')
 enMap.set('aboutHeaderBtn','About')
 enMap.set('performancesHeaderBtn','Performances')
 enMap.set('donateHeaderBtn','Donate')
@@ -46,6 +48,10 @@ enMap.set('forInformation1','For information about bookings, public shows or any
 enMap.set('forInformation2','please contact our business manager, Nikodim Buryakov, at')
 enMap.set('forInformation3','(646) 309-5762 or nikodimburyakov@gmail.com,')
 enMap.set('heruvim','heruvim hymn')
+enMap.set('sever','Northern Duo')
+enMap.set('sever1','Authentic music of 17 century Eastern Orthodox Church')
+enMap.set('seeMyVideos','See my Video')
+enMap.set('video','video')
 
 
 
@@ -54,6 +60,8 @@ enMap.set('heruvim','heruvim hymn')
 const ruMap = new Map();
 ruMap.set('hello', 'Добро пожаловать на наш сайт')
 ruMap.set('homeHeaderBtn','Главная')
+ruMap.set('HomePhotoAlbum','Фото Альбом')
+ruMap.set('HomeArranged','Переложение написано для трехголосного мужского ансамбля (Н. Буряков)')
 ruMap.set('aboutHeaderBtn','О нас')
 ruMap.set('performancesHeaderBtn','ПРОГРАММА')
 ruMap.set('donateHeaderBtn','Донат')
@@ -97,6 +105,10 @@ ruMap.set('forInformation1','Для получения информации о �
 ruMap.set('forInformation2','обращайтесь к художественному руководителю и дирижеру капеллы, Никодиму Бурякову, по')
 ruMap.set('forInformation3','(646) 309-5762 or nikodimburyakov@gmail.com,')
 ruMap.set('heruvim','Херувимы')
+ruMap.set('sever','Cеверное Двухголосие')
+ruMap.set('sever1','Аутентичная музыка Восточной Православной Церкви 17 века')
+ruMap.set('seeMyVideos','Мое Видео')
+ruMap.set('video','Мое Видео')
 
 
 export const translationSlice = createSlice({

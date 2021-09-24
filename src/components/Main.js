@@ -14,6 +14,7 @@ import Video from "./components/Video";
 import Music1 from "./components/Music1";
 import Music2 from "./components/Music2";
 import Music3 from "./components/Music3";
+import Sever from "./components/Sever";
 
 
 
@@ -54,6 +55,9 @@ function Main(){
           </Route>
           <Route path="/video">
             <Video/>
+          </Route>
+          <Route path="/sever">
+            <Sever/>
           </Route>
         </Switch>
       </main>

@@ -1,6 +1,6 @@
 import {Button, Card, CardActions, CardContent, CardMedia, Container, Grid, Typography} from "@material-ui/core";
 import YouTube from "../YouTube";
-import React from "react";
+import React, {useState} from "react";
 import useStyles from "../../styles";
 import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
@@ -48,11 +48,12 @@ const cards = [
     ]
 
 function Home() {
+
     const classes = useStyles()
     const translationMap = useSelector(state => state.translation.translationMap)
     return (
         <div className={classes.container} color="primary">
-            <Container maxWidth="lg" >
+            <Container maxWidth="lg">
                 <Typography variant="h3" align="center" gutterBottom>
                         {translationMap.get('hello')}
                 </Typography>
@@ -64,7 +65,7 @@ function Home() {
                         <YouTube videoId={'bBf0UmZ-Gio'}/>
                     </Grid>
                     <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
-                        Photo Album
+                        {translationMap.get('HomePhotoAlbum')}
                     </Typography>
                 </Grid>
             </Container>
@@ -73,14 +74,14 @@ function Home() {
                     <Grid container spacing={2} justify="center">
                         <Grid item>
                             <Button variant="contained" color="primary" component={Link} to="/video">
-                                See my videos
+                                {translationMap.get('seeMyVideos')}
                             </Button>
                         </Grid>
                     </Grid>
                 </div>
             </Container>
             <Typography variant="h5" align="center" gutterBottom className={classes.top50}>
-                Переложение написано для трехголосного мужского ансамбля (Н. Буряков)
+                {translationMap.get('HomeArranged')}
             </Typography>
             <Container className={classes.cardGrid} maxWidth="md">
                 <Grid container spacing={4}>

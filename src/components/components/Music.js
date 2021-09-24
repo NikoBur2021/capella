@@ -3,11 +3,25 @@ import {Button, Card, CardMedia, Container} from "@material-ui/core";
 import useStyles from "../../styles";
 import React from "react";
 
-function Music(){ // ХЕРУВИМСКАЯ
+
+
+import pdf from "../../images/Херувимская Софрониевская Чесноков.pdf"
+
+
+
+function Music(){
     const classes = useStyles()
+
     return (
         <div>
             <Container className={classes.cardGrid} maxWidth="lg">
+                <Grid container spacing={2} justify="center">
+                    <Grid item>
+                        <Button variant="contained" color="primary"  href={pdf} >
+                            Click to download
+                        </Button>
+                    </Grid>
+                </Grid>
             <Grid container spacing={2}>
                 <Grid item md={6}>
                     <Card className={classes.card}>

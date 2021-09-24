@@ -1,18 +1,21 @@
 import logo from "../../images/button-PayPal-donate.png";
 import useStyles from "../../styles";
 import Grid from "@material-ui/core/Grid";
-import {Button, Container, Typography} from "@material-ui/core";
+import {Breadcrumbs, Button, Container, Link, Typography} from "@material-ui/core";
 import React from "react";
 import {useSelector} from "react-redux";
-import Contact from "./Contact";
+
 
 
 
 function Donate(){
     const classes = useStyles()
     const translationMap = useSelector(state => state.translation.translationMap)
+    function handleClick() {
+    }
   return (
       <Container>
+
           <div className={classes.overlay}/>
       <Grid container spacing={3}  className={classes.backgroundDonate}>
               <Grid item xs={12}>

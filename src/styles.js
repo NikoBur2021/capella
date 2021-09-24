@@ -29,9 +29,6 @@ const useStyles = makeStyles((theme) =>({
     padding: theme.spacing(8,0,3),
     position:"relative",
   },
-  forty: {
-
-  },
   us:{
     backgroundImage: `url(${US})`,
     backgroundPosition: 'center',
@@ -193,6 +190,10 @@ const useStyles = makeStyles((theme) =>({
   En2: {
     marginLeft: '10px',
     marginTop: '40px',
+  },
+  bread: {
+    marginLeft: '10px',
+    marginTop: '-40px'
   },
 
   mR50: {

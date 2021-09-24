@@ -8,12 +8,13 @@ import {
     CardMedia,
     Container,
     Grid,
-    Typography
+    Typography,
+    Link
 } from "@material-ui/core";
 import React from "react";
 import useStyles from "../../styles";
 import {useSelector} from "react-redux";
-import {Link} from "react-router-dom";
+
 function About(){
     const classes = useStyles()
     const translationMap = useSelector(state => state.translation.translationMap)

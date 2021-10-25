@@ -109,6 +109,12 @@ const useStyles = makeStyles((theme) =>({
     paddingLeft: '60px',
     fontWeight: 'bold',
   },
+  currentPr:{
+    paddingTop: '2px',
+    fontSize: 55,
+    paddingLeft: '60px',
+
+  },
   aboutImages1: {
     backgroundImage: `url(${centralPark})`
   },

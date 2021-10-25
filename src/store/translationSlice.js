@@ -26,6 +26,7 @@ enMap.set('performancesEktenia','10. LITANY OF SUPPLICATION - Deacon Sergiy Trub
 enMap.set('performancesMilost','11. A MERCY OF PEACE - A. Nikolsky op. 45 N3')
 enMap.set('performancesDostoino','12. IT IS TRULY RIGHT - P. Dinev')
 enMap.set('performancesVidehom','13. THE TRUE LIGHT - Nathanael (Bochkalo)')
+enMap.set('currentProgram','Current Program')
 enMap.set('aboutSPRING','SPRING 2021')
 enMap.set('aboutFirstPer','First performance after lockdown in Central Park NY')
 enMap.set('aboutLiturgy','THE LITYRGY')
@@ -52,6 +53,7 @@ enMap.set('sever','Northern Duo')
 enMap.set('sever1','Authentic music of 17 century Eastern Orthodox Church')
 enMap.set('seeMyVideos','See my Video')
 enMap.set('video','video')
+enMap.set('download','Click to download')
 
 
 
@@ -83,6 +85,7 @@ ruMap.set('performancesEktenia','10. ЕКТЕНИЯ ПРОСИТЕЛЬНАЯ –
 ruMap.set('performancesMilost','11. МИЛОСТЬ МИРА – А. Никольский ор. 45 N3')
 ruMap.set('performancesDostoino','12. ДОСТОЙНО ЕСТЬ - П. Динев')
 ruMap.set('performancesVidehom','13. ВИДЕХОМ СВЕТ ИСТИНЫ – Иеромонах Нафанаил (Бочкало)')
+ruMap.set('currentProgram','Текущая программа')
 ruMap.set('aboutSPRING','ВЕСНА')
 ruMap.set('aboutFirstPer','Первое выступление после карантина в Центральном парке Нью-Йорка')
 ruMap.set('aboutLiturgy','ЛИТУРГИЯ')
@@ -109,6 +112,7 @@ ruMap.set('sever','Cеверное Двухголосие')
 ruMap.set('sever1','Аутентичная музыка Восточной Православной Церкви 17 века')
 ruMap.set('seeMyVideos','Мое Видео')
 ruMap.set('video','Мое Видео')
+ruMap.set('download','Cкачать pdf')
 
 
 export const translationSlice = createSlice({

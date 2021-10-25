@@ -1,9 +1,9 @@
-// import YouTube from "../YouTube";
 import React from "react";
-import {Container, Paper, Typography} from "@material-ui/core";
+import {Button, Container, Paper, Typography} from "@material-ui/core";
 import useStyles from "../../styles";
 import {useSelector} from "react-redux";
 import Grid from "@material-ui/core/Grid";
+import pdf from "../../images/12 сентября.pdf";
 
 
 function Performances(){
@@ -13,7 +13,15 @@ function Performances(){
 
           <Paper className={`${classes.container} ${classes.backgroundPerformance} ${classes.mainFeaturesPost}`}>
               <Container fixed>
-                  <div className={classes.overlay}/>
+                  <Grid item>
+                      <Typography variant="h2" align="right" color="primary" gutterBottom>
+                          <div className={classes.currentPr}>{translationMap.get('currentProgram')}</div>
+                              <Button size="large" variant="contained" color="primary" href={pdf}>
+                                  {translationMap.get('download')}
+                              </Button>
+                      </Typography>
+                  </Grid>
+
                   <Grid container>
                       <Grid item ={12}>
                           <div className={classes.mainFeaturesPostContent}>
@@ -44,7 +52,6 @@ function Performances(){
                                   <p>{translationMap.get('performancesMilost')}</p>
                                   <p>{translationMap.get('performancesDostoino')}</p>
                                   <p>{translationMap.get('performancesVidehom')}</p>
-
                               </Typography>
                           </div>
                       </Grid>

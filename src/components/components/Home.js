@@ -1,6 +1,6 @@
 import {Button, Card, CardActions, CardContent, CardMedia, Container, Grid, Typography} from "@material-ui/core";
 import YouTube from "../YouTube";
-import React, {useState} from "react";
+import React from "react";
 import useStyles from "../../styles";
 import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
@@ -52,9 +52,9 @@ function Home() {
     const classes = useStyles()
     const translationMap = useSelector(state => state.translation.translationMap)
     return (
-        <div className={classes.container} color="primary">
+        <div className={classes.container}>
             <Container maxWidth="lg">
-                <Typography variant="h3" align="center" gutterBottom>
+                <Typography variant="h3" align="center" color="textPrimary" gutterBottom>
                         {translationMap.get('hello')}
                 </Typography>
                 <Grid container spacing={4} justify="center">

@@ -24,6 +24,9 @@ import valyaev2 from "./images/valyaev2.jpeg"
 import valyaev3 from "./images/valyaev3.jpeg"
 
 const useStyles = makeStyles((theme) =>({
+  // bar:{
+  //   background: '#f9f9f9'
+  // },
   container: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8,0,3),

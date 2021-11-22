@@ -34,7 +34,6 @@ function Header() {
                     </Grid>
                     <Grid item xs={1} className={classes.mR50}>
                         <Button  color="secondary" className={classes.sixPix}   component={Link} to="/performances">
-
                             {translationMap.get('performancesHeaderBtn')}
                         </Button>
                     </Grid>

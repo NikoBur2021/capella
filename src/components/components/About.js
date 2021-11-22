@@ -15,6 +15,8 @@ import React from "react";
 import useStyles from "../../styles";
 import {useSelector} from "react-redux";
 
+
+
 function About(){
     const classes = useStyles()
     const translationMap = useSelector(state => state.translation.translationMap)

@@ -99,21 +99,21 @@ export default function PersistentDrawerLeft() {
 
 
 
-    const [width, setWidth] = useState(window.innerWidth);
+    const [width, setWidth] = useState(window.innerWidth);//  Создается стейт width и изначальные значения у него window.innerWidth - window - это глобальные объект, который доступен из любой точки JS которое отвечает за текущее окно. Если ты хочешь поработать с окном, вызови window, как консоль.  И у этого window есть атрибут innerWidth - ширина окна. Мы просто создаем стейт который равен текущей ширине окна.
     const [height, setHeight] = useState(window.innerHeight);
 
-    function handleWindowSizeChange() {
+    function handleWindowSizeChange() { // создаем хендлер. Если меняется размер окна, у нас меняется стейт width
         setWidth(window.innerWidth);
         setHeight(window.innerHeight);
     }
     useEffect(() => {
-        window.addEventListener('resize', handleWindowSizeChange);
-        return () => {
-            window.removeEventListener('resize', handleWindowSizeChange);
-        }
+        window.addEventListener('resize', handleWindowSizeChange); // В addEventListener есть event - resize
+        return () => { // У useEffect есть return который выполняется при закрытии окна. useEffect сразу заменил три функции - componentDidMount, componentDidUpdate,componentViweUnmount.
+            window.removeEventListener('resize', handleWindowSizeChange); // эта функция в return - она как раз нужна для component willUnmmount.Если component будет willUnmmount то мы удаляем eventListener
+        } // Если ты повесил какой-то event на окно, лучше его удалить. it's good practic
     }, []);
 
-    let isMobile = (width <= 768);
+    let isMobile = (width <= 768) ; //786 - это стандартная ширина мобильного браузера.
 
     function mobileRender (){
         return (
@@ -133,12 +133,12 @@ export default function PersistentDrawerLeft() {
                         {width}
                         {isMobile?'mobile': 'browser'}
                     </Typography>
-                    <BrowserView>
-                        <h1>This is rendered only in browser</h1>
-                    </BrowserView>
-                    <MobileView>
-                        <h1>This is rendered only on mobile</h1>
-                    </MobileView>
+                    {/*<BrowserView>*/}
+                    {/*    <h1>This is rendered only in browser</h1>*/}
+                    {/*</BrowserView>*/}
+                    {/*<MobileView>*/}
+                    {/*    <h1>This is rendered only on mobile</h1>*/}
+                    {/*</MobileView>*/}
                 </Toolbar>
             </AppBar>
         <Drawer

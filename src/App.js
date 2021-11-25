@@ -24,12 +24,13 @@ import {Button, CssBaseline, ListItemIcon} from "@material-ui/core";
 
 import useStyles from "./styles";
 import Main from "./components/Main";
-import {useSelector} from "react-redux";
+import {Provider, useSelector} from "react-redux";
 import Welcome from "./components/Welcome";
 import customTheme from "./components/Theme";
 import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
 import {useEffect, useState} from "react";
 import Header from "./components/Header";
+import store from "./store";
 
 
 
@@ -192,11 +193,11 @@ export default function PersistentDrawerLeft() {
     }
     function browserRender(){
         return(
-            <>
+            <Provider store={store}>
                 <Header/>
                 <Main/>
                 <Footer/>
-            </>
+            </Provider>
         )
     }
 

@@ -10,20 +10,22 @@ function Footer() {
     const classes = useStyles()
     const translationMap = useSelector(state => state.translation.translationMap)
     return (
-        <Grid item xs={12}>
-            <footer className={classes.footer}>
-                <Typography variant='h5' align="center" gutterBottom>
-                    <div className={classes.noPad1}>{translationMap.get('footerSpirit')}</div>
-                    <div className={classes.noPad1}>{translationMap.get('footerWhere')}</div>
-                    <div className={classes.FooterFont}>{translationMap.get('footerPlease')}</div>
-                    <Button rel="noopener noreferrer"  href="https://www.instagram.com/nikodim.capella/" target="_blank"
-                              to='/'>
-                        <InstagramIcon className={classes.instaSize} />
-                    </Button>
-                </Typography>
-            </footer>
-        </Grid>
-
+        <footer>
+            <Grid container>
+                <Grid item xs={12} className={classes.footer}>
+                    <Typography variant='h5' align="center" gutterBottom>
+                        <div className={classes.noPad1}>{translationMap.get('footerSpirit')}</div>
+                        <div className={classes.noPad1}>{translationMap.get('footerWhere')}</div>
+                        <div className={classes.FooterFont}>{translationMap.get('footerPlease')}</div>
+                        <Button rel="noopener noreferrer" href="https://www.instagram.com/nikodim.capella/"
+                                target="_blank"
+                                to='/'>
+                            <InstagramIcon className={classes.instaSize}/>
+                        </Button>
+                    </Typography>
+                </Grid>
+            </Grid>
+        </footer>
     )
 }
 

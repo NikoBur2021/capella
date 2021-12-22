@@ -1,4 +1,4 @@
-import {Button, Card, CardActions, CardContent, CardMedia, Container, Grid, Typography} from "@material-ui/core";
+import {Button, Card, CardActions, CardContent, CardMedia,Grid, Typography} from "@material-ui/core";
 import YouTube from "../YouTube";
 import React from "react";
 import useStyles from "../../styles";
@@ -37,6 +37,7 @@ const cards = [
         picture: antifon,
         music: '/music2'
     },
+
     {
         id: 3,
         bookName: 'Второй Антифон',
@@ -52,66 +53,66 @@ function Home() {
     const classes = useStyles()
     const translationMap = useSelector(state => state.translation.translationMap)
     return (
-        <div className={classes.container}>
-            <Container maxWidth="lg">
-                <Typography variant="h3" align="center" color="textPrimary" gutterBottom>
+        <Grid container spacing={3}>
+                <Grid item xs={12}>
+                    <Typography variant="h3" align="center" color="textPrimary" gutterBottom>
                         {translationMap.get('hello')}
-                </Typography>
-                <Grid container spacing={4} justify="center">
-                    <Grid item>
-                        <YouTube videoId={'b-57dt3Bqms'}/>
-                    </Grid>
-                    <Grid item>
-                        <YouTube videoId={'bBf0UmZ-Gio'}/>
-                    </Grid>
-                    <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
+                    </Typography>
+                </Grid>
+
+                <Grid item xs={12} sm={6} align="center">
+                    <YouTube videoId={'b-57dt3Bqms'}/>
+                </Grid>
+                <Grid item xs={12} sm={6} align="center">
+                    <YouTube videoId={'bBf0UmZ-Gio'}/>
+                </Grid>
+
+                <Grid item xs={12}>
+                    <Typography variant="h2" align="center" color="textPrimary" >
                         {translationMap.get('HomePhotoAlbum')}
                     </Typography>
                 </Grid>
-            </Container>
-            <Container>
-                <div className={classes.button}>
-                    <Grid container spacing={2} justify="center">
-                        <Grid item>
-                            <Button variant="contained" color="primary" component={Link} to="/video">
-                                {translationMap.get('seeMyVideos')}
-                            </Button>
-                        </Grid>
-                    </Grid>
-                </div>
-            </Container>
-            <Typography variant="h5" align="center" gutterBottom className={classes.top50}>
-                {translationMap.get('HomeArranged')}
-            </Typography>
-            <Container className={classes.cardGrid} maxWidth="md">
-                <Grid container spacing={4}>
-                    {cards.map((card) => (
-                        <Grid item key={card} md={3}>
-                            <Card className={classes.card}>
-                                <CardMedia className={classes.cardMedia} image={card.picture}/>
-                                <CardContent className={classes.cardContent}>
-                                    <Typography gutterBottom variant="h5">
-                                        {card.bookName}
-                                    </Typography>
-                                    <Typography>
-                                            Композитор: {card.composer}
-                                    </Typography>
-                                    <Typography>
-                                         {translationMap.get('homeSuggested')} ${card.price}
-                                    </Typography>
-                                </CardContent>
-                                <CardActions>
-                                    <Button size="small" color="secondary" component={Link} to={card.music}>View</Button>
-                                    <Button size="small" color="secondary" component={Link} to="/donate">Donate</Button>
-                                    <LayerIcon/>
-                                    <PlayCircleFilledIcon/>
-                                </CardActions>
-                            </Card>
-                        </Grid>
-                    ))}
+
+                <Grid item xs={12} align="center">
+                    <Button variant="contained" color="primary" component={Link} to="/video">
+                        {translationMap.get('seeMyVideos')}
+                    </Button>
                 </Grid>
-            </Container>
-        </div>
+
+                <Grid item xs={12}>
+                    <Typography variant="h5" align="center">
+                        {translationMap.get('HomeArranged')}
+                    </Typography>
+                </Grid>
+                {cards.map((card) => (
+                    <Grid item key={card} xs={12} sm={6} md={3}>
+                        <Card className={classes.card}>
+                            <CardMedia className={classes.cardMedia} image={card.picture}/>
+                            <CardContent className={classes.cardContent}>
+                                <Typography gutterBottom variant="h5">
+                                    {card.bookName}
+                                </Typography>
+                                <Typography>
+                                        Композитор:{card.composer}
+                                </Typography>
+                                <Typography>
+                                     {translationMap.get('homeSuggested')} ${card.price}
+                                </Typography>
+                            </CardContent>
+                            <CardActions>
+                                <Button variant="contained" color="primary" size="small"  component={Link} to={card.music} >
+                                    {translationMap.get('view')}
+                                </Button>
+                                <Button variant="contained" color="primary" size="small" component={Link} to="/donate">
+                                    {translationMap.get('donate2')}
+                                </Button>
+                                <LayerIcon/>
+                                <PlayCircleFilledIcon/>
+                            </CardActions>
+                        </Card>
+                    </Grid>
+                ))}
+        </Grid>
     )
 }
 export default Home

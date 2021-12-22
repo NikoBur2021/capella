@@ -1,4 +1,4 @@
-import {Breadcrumbs, Container, Grid, Typography,Link} from "@material-ui/core";
+import {Breadcrumbs,Grid, Typography,Link} from "@material-ui/core";
 import YouTube from "../YouTube";
 import React from "react";
 import {useSelector} from "react-redux";
@@ -12,7 +12,7 @@ function Sever(){
 
     }
     return (
-        <div className={classes.container}>
+        <Grid container spacing={3}>
             <div className={classes.bread}>
                 <Breadcrumbs aria-label="breadcrumb">
                 <Link color="inherit" href="/" onClick={handleClick}>
@@ -24,35 +24,29 @@ function Sever(){
                 <Typography color="textPrimary">{translationMap.get('sever')}</Typography>
             </Breadcrumbs>
             </div>
-            <Container maxWidth="lg" >
-                    <Typography variant="h3" align="center" color="textSecondary" gutterBottom>{translationMap.get('sever')}</Typography>
-                    <Typography variant="h3" align="center" color="textSecondary" gutterBottom>{translationMap.get('sever1')}</Typography>
-                <Grid container spacing={4} justify="center">
-                    <Grid item>
+            <Grid item xs={12}>
+                <Typography variant="h3" align="center" color="textSecondary" gutterBottom>{translationMap.get('sever')}</Typography>
+                <Typography variant="h3" align="center" color="textSecondary" gutterBottom>{translationMap.get('sever1')}</Typography>
+            </Grid>
+            <Grid item xs={12} md={6} align="center">
                         <YouTube videoId={'Wy1R9wFEj6Q'}/>
-                    </Grid>
-                    <Grid item>
+            </Grid>
+            <Grid item xs={12} md={6} align="center">
                         <YouTube videoId={'ovgm9YmvXiQ'}/>
-                    </Grid>
-                </Grid>
-                <Grid container spacing={4} justify="center">
-                    <Grid item>
+            </Grid>
+            <Grid item xs={12} md={6} align="center">
                         <YouTube videoId={'BNY3L-irXO0'}/>
-                    </Grid>
-                    <Grid item>
+            </Grid>
+            <Grid item xs={12} md={6} align="center">
                         <YouTube videoId={'YTB8uNdyUvo'}/>
-                    </Grid>
-                </Grid>
-                <Grid container spacing={4} justify="center">
-                    <Grid item>
+            </Grid>
+            <Grid item xs={12} md={6} align="center">
                         <YouTube videoId={'YTB8uNdyUvo'}/>
-                    </Grid>
-                    <Grid item>
+            </Grid>
+            <Grid item xs={12} md={6} align="center">
                         <YouTube videoId={'q6qzyLYSby0'}/>
-                    </Grid>
-                </Grid>
-            </Container>
-        </div>
+            </Grid>
+        </Grid>
     )
 }
 export default Sever

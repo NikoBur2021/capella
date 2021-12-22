@@ -8,13 +8,13 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import useStyles from "../styles";
 import Music from "./components/Music";
 import Video from "./components/Video";
 import Music1 from "./components/Music1";
 import Music2 from "./components/Music2";
 import Music3 from "./components/Music3";
 import Sever from "./components/Sever";
+import {Container} from "@material-ui/core";
 
 
 
@@ -22,44 +22,45 @@ import Sever from "./components/Sever";
 
 
 function Main(){
-  const classes = useStyles()
   return (
-      <main className={classes.top50}>
-        <Switch>
-          <Route exact path="/">
-            <Home/>
-          </Route>
-          <Route path="/about">
-            <About/>
-          </Route>
-          <Route path="/performances">
-            <Performances />
-          </Route>
-          <Route path="/donate">
-            <Donate />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
-          <Route path="/music">
-            <Music/>
-          </Route>
-          <Route path="/music1">
-            <Music1/>
-          </Route>
-          <Route path="/music2">
-            <Music2/>
-          </Route>
-          <Route path="/music3">
-            <Music3/>
-          </Route>
-          <Route path="/video">
-            <Video/>
-          </Route>
-          <Route path="/sever">
-            <Sever/>
-          </Route>
-        </Switch>
+      <main>
+        <Container maxWidth="lg">
+          <Switch>
+            <Route exact path="/">
+              <Home/>
+            </Route>
+            <Route path="/about">
+              <About/>
+            </Route>
+            <Route path="/performances">
+              <Performances />
+            </Route>
+            <Route path="/donate">
+              <Donate />
+            </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
+            <Route path="/music">
+              <Music/>
+            </Route>
+            <Route path="/music1">
+              <Music1/>
+            </Route>
+            <Route path="/music2">
+              <Music2/>
+            </Route>
+            <Route path="/music3">
+              <Music3/>
+            </Route>
+            <Route path="/video">
+              <Video/>
+            </Route>
+            <Route path="/sever">
+              <Sever/>
+            </Route>
+          </Switch>
+        </Container>
       </main>
   )
 }

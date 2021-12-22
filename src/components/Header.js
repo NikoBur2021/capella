@@ -1,26 +1,26 @@
-import {AppBar, Button, Toolbar} from "@material-ui/core";
+import {AppBar, Button,Toolbar} from "@material-ui/core";
 import React from "react";
 import useStyles from "../styles";
 import Grid from "@material-ui/core/Grid";
 import {Link} from "react-router-dom";
 import Welcome from "./Welcome";
 import {useSelector} from "react-redux";
+import {Avatar} from "@mui/material";
 
 
 function Header() {
     const classes = useStyles()
     const translationMap = useSelector(state => state.translation.translationMap)
     return (
-        <AppBar position="fixed">
-            <Toolbar >
-                <Grid container spacing={1}>
-                    <Grid item xs={1}>
-                        <Button   color='secondary' className={classes.sixPix} component={Link}
+        <AppBar position="sticky">
+            <Toolbar>
+                <Grid container spacing={2}>
+                    <Grid item xs={6}>
+                        <Button  color='secondary' className={classes.sixPix} component={Link}
                                 to='/'>
+                            <Avatar src="/160752.png" className={classes.avatar}/>
                             @nikodim.capella
                         </Button>
-                    </Grid>
-                    <Grid item xs={4} className={classes.mR50}>
                     </Grid>
                     <Grid item xs={1}>
                         <Button color='secondary' className={classes.sixPix} component={Link} to="/">
@@ -32,8 +32,8 @@ function Header() {
                             {translationMap.get('aboutHeaderBtn')}
                         </Button>
                     </Grid>
-                    <Grid item xs={1} className={classes.mR50}>
-                        <Button  color="secondary" className={classes.sixPix}   component={Link} to="/performances">
+                    <Grid item xs={1}>
+                        <Button  color="secondary" className={`${classes.sixPix} ${classes.myPadding}`} component={Link} to="/performances">
                             {translationMap.get('performancesHeaderBtn')}
                         </Button>
                     </Grid>
@@ -48,7 +48,9 @@ function Header() {
                         </Button>
                     </Grid>
                     <Grid item xs={1}>
-                        <Welcome/>
+                        <div>
+                            <Welcome/>
+                        </div>
                     </Grid>
                 </Grid>
             </Toolbar>

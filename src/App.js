@@ -1,9 +1,9 @@
 import './App.css';
 import * as React from 'react';
 import {
-    BrowserRouter as Router, Route, Switch,
+    BrowserRouter as Router,
 } from "react-router-dom";
-import { styled, useTheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
@@ -20,17 +20,16 @@ import ListItemText from '@mui/material/ListItemText';
 import {Link} from "react-router-dom";
 import Footer from "./components/Footer";
 import {ThemeProvider} from "@material-ui/styles";
-import {Button, CssBaseline, ListItemIcon} from "@material-ui/core";
+import {CssBaseline} from "@material-ui/core";
 
 import useStyles from "./styles";
 import Main from "./components/Main";
-import {Provider, useSelector} from "react-redux";
-import Welcome from "./components/Welcome";
+import {Provider, useDispatch, useSelector} from "react-redux";
 import customTheme from "./components/Theme";
-import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
 import {useEffect, useState} from "react";
 import Header from "./components/Header";
 import store from "./store";
+import {switchToEn, switchToRu} from "./store/translationSlice";
 
 
 
@@ -78,15 +77,13 @@ const AppBar = styled(MuiAppBar, {
 const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
+    padding: theme.spacing(0, 2),
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
 }));
 
 export default function PersistentDrawerLeft() {
     const classes = useStyles()
-    // const theme = useTheme();
     const [open, setOpen] = React.useState(false);
     const translationMap = useSelector(state => state.translation.translationMap)
 
@@ -102,6 +99,7 @@ export default function PersistentDrawerLeft() {
 
     const [width, setWidth] = useState(window.innerWidth);//  Создается стейт width и изначальные значения у него window.innerWidth - window - это глобальные объект, который доступен из любой точки JS которое отвечает за текущее окно. Если ты хочешь поработать с окном, вызови window, как консоль.  И у этого window есть атрибут innerWidth - ширина окна. Мы просто создаем стейт который равен текущей ширине окна.
     const [height, setHeight] = useState(window.innerHeight);
+    const dispatch = useDispatch()
 
     function handleWindowSizeChange() { // создаем хендлер. Если меняется размер окна, у нас меняется стейт width
         setWidth(window.innerWidth);
@@ -118,8 +116,8 @@ export default function PersistentDrawerLeft() {
 
     function mobileRender (){
         return (
-            <>
-            <AppBar position="fixed" open={open} >
+            <Box sx={{ display: 'flex' }}>
+            <AppBar position="fixed" open={open}>
                 <Toolbar>
                     <IconButton
                         aria-label="open drawer"
@@ -129,17 +127,9 @@ export default function PersistentDrawerLeft() {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap component="div">
+                    <Typography  variant="h6" noWrap component="div">
                         Menu
-                        {width}
-                        {isMobile?'mobile': 'browser'}
                     </Typography>
-                    {/*<BrowserView>*/}
-                    {/*    <h1>This is rendered only in browser</h1>*/}
-                    {/*</BrowserView>*/}
-                    {/*<MobileView>*/}
-                    {/*    <h1>This is rendered only on mobile</h1>*/}
-                    {/*</MobileView>*/}
                 </Toolbar>
             </AppBar>
         <Drawer
@@ -162,54 +152,56 @@ export default function PersistentDrawerLeft() {
             </DrawerHeader>
             <Divider />
             <List>
-                <ListItem button component={Link} to="/">
+                <ListItem onClick={handleDrawerClose} button component={Link} to="/">
                     <ListItemText primary={translationMap.get('homeHeaderBtn')}/>
                 </ListItem>
-                <ListItem button component={Link} to="/about">
-                    <ListItemText>
+                <ListItem onClick={handleDrawerClose} button component={Link} to="/about">
                         <ListItemText primary={translationMap.get('aboutHeaderBtn')}/>
-                    </ListItemText>
                 </ListItem>
-                <ListItem button component={Link} to="/performances" >
+                <ListItem onClick={handleDrawerClose} button component={Link} to="/performances" >
                     <ListItemText primary={translationMap.get('performancesHeaderBtn')}/>
                 </ListItem>
-                <ListItem button component={Link} to="/donate" >
+                <ListItem onClick={handleDrawerClose} button component={Link} to="/donate" >
                     <ListItemText primary={translationMap.get('donateHeaderBtn')}/>
                 </ListItem>
-                <ListItem button component={Link} to="/contact" >
+                <ListItem onClick={handleDrawerClose} button component={Link} to="/contact" >
                     <ListItemText primary={translationMap.get('contactHeaderBtn')}/>
                 </ListItem>
-                <div>
-                    <Welcome/>
-                </div>
+                <ListItem onClick={handleDrawerClose}>
+                    <button className={classes.us} onClick={() => dispatch(switchToEn())}></button>
+                    <button className ={classes.ru1} onClick={() => dispatch(switchToRu())}></button>
+                </ListItem>
             </List>
         </Drawer>
         <MainStyle open={open}>
+            <div className={classes.toolbar}></div>
             <Main/>
             <Footer/>
         </MainStyle>
-            </>
+            </Box>
         )
     }
     function browserRender(){
         return(
-            <Provider store={store}>
+            <>
                 <Header/>
                 <Main/>
                 <Footer/>
-            </Provider>
+            </>
+
         )
     }
 
     return(
-        <Box sx={{ display: 'flex' }}>
+            <Provider store={store}>
             <ThemeProvider theme={customTheme}>
-                <CssBaseline/>
                 <Router>
+                    <CssBaseline/>
                     {isMobile ? mobileRender(): browserRender()}
                 </Router>
             </ThemeProvider>
-        </Box>
+            </Provider>
+
     );
 }
 

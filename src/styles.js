@@ -1,10 +1,12 @@
 import {makeStyles} from "@material-ui/core/styles";
 import dr from "./images/gray.jpg";
+import dr2 from "./images/gray2.jpg";
 import centralPark from "./images/centralPark.jpg"
 import nick from "./images/nick.jpg"
 import church from "./images/church.jpg"
 import trio from "./images/trio.jpg"
 import donate from "./images/donate.jpg"
+import donate2 from "./images/donate2.jpg"
 import US from "./images/US.png"
 import Ru from "./images/Rus.png"
 import pasha from "./images/Pasha'sFriend.jpg"
@@ -13,7 +15,8 @@ import chesnokov2 from "./images/Chesnokov2.jpg"
 import chesnokov3 from "./images/Chesnokov3.jpg"
 import chesnokov4 from "./images/Chesnokov4.jpg"
 import korean from "./images/KoreanTown.jpg"
-import blago1 from "./images/AntifonChes1.jpg"
+import korean2 from "./images/KoreanTown2.jpg"
+import blago1 from  "./images/AntifonChes1.jpg"
 import blago2 from "./images/AntifonChes2.jpg"
 import kopilov1 from "./images/Milost1.png"
 import kopilov2 from "./images/Milost2.png"
@@ -23,10 +26,28 @@ import valyaev1 from "./images/valyaev1.jpeg"
 import valyaev2 from "./images/valyaev2.jpeg"
 import valyaev3 from "./images/valyaev3.jpeg"
 
+
+// const drawerWidth = 240;
+
 const useStyles = makeStyles((theme) =>({
-  // bar:{
-  //   background: '#f9f9f9'
+  myPadding: {
+    marginRight: '10px'
+  },
+  myPadding2: {
+    marginTop: '50px'
+  },
+  avatar:{
+    marginRight: theme.spacing(2)
+  },
+  toolbar:{
+    ...theme.mixins.toolbar
+  },
+  // appbar:{
+  //   width: `calc(100%${drawerWidth}px)`
   // },
+  bar:{
+    background: '#f9f9f9'
+  },
   container: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8,0,3),
@@ -37,16 +58,25 @@ const useStyles = makeStyles((theme) =>({
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    height: 15,
-    width: 22
+    height: 17,
+    width: 24
   },
   ru:{
     backgroundImage: `url(${Ru})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    height: 15,
-    width: 22
+    height: 17,
+    width: 24,
+  },
+  ru1:{
+    backgroundImage: `url(${Ru})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: 17,
+    width: 24,
+    marginLeft: '10px'
   },
   flags: {
     marginLeft: '50px',
@@ -70,6 +100,13 @@ const useStyles = makeStyles((theme) =>({
     backgroundPosition: 'center',
     backgroundImage: `linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)),url(${dr})`
   },
+  backgroundPerformance2: {
+    position:"relative",
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    backgroundImage: `linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)),url(${dr2})`
+  },
   backgroundDonate: {
     backgroundImage: `url(${donate})`,
     backgroundPosition: 'center',
@@ -77,8 +114,22 @@ const useStyles = makeStyles((theme) =>({
     backgroundRepeat: 'no-repeat',
     height: '100vh'
   },
+  backgroundDonate2: {
+    backgroundImage: `url(${donate2})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: '100vh'
+  },
   backgroundContact: {
     backgroundImage: `url(${korean})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: '100vh'
+  },
+  backgroundContact2: {
+    backgroundImage: `url(${korean2})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -98,17 +149,20 @@ const useStyles = makeStyles((theme) =>({
     fontWeight: 'bold',
     color: theme.palette.primary,
   },
+
+  contactUss:{
+    paddingTop: '300px',
+  },
   contactUs:{
-    fontSize: 150,
     marginLeft: '155px'
   },
-  contactUss:{
-    fontSize: 150,
-    paddingTop: '300px',
+  contactUss2:{
+    paddingTop: '280px',
+    fontWeight: 'bold',
   },
   donateAll:{
     paddingTop: '2px',
-    fontSize: 25,
+    // fontSize: 25,
     paddingLeft: '60px',
     fontWeight: 'bold',
   },
@@ -117,6 +171,9 @@ const useStyles = makeStyles((theme) =>({
     fontSize: 55,
     paddingLeft: '60px',
 
+  },
+  download:{
+    justifyContent: 'center'
   },
   aboutImages1: {
     backgroundImage: `url(${centralPark})`
@@ -202,7 +259,7 @@ const useStyles = makeStyles((theme) =>({
   },
   bread: {
     marginLeft: '10px',
-    marginTop: '-40px'
+    marginTop: '20px'
   },
 
   mR50: {
@@ -217,7 +274,6 @@ const useStyles = makeStyles((theme) =>({
     fontSize: 18,
     '&:hover': {
   backgroundColor: 'gray',
-
 }
   },
   buttons: {
@@ -245,6 +301,10 @@ const useStyles = makeStyles((theme) =>({
   footer: {
     backgroundColor: theme.palette.background.paper,
     padding: '50px 0'
+  },
+  footerContainer:{
+    padding: '0',
+    margin: '0'
   },
   mainFeaturesPost: {
     position: "relative",
@@ -274,6 +334,7 @@ const useStyles = makeStyles((theme) =>({
       marginTop: theme.spacing(2),
     },
   },
+
 
 }))
 export default useStyles;
